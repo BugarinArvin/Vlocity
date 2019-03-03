@@ -1,0 +1,7 @@
+com\scheduler\repository\TaskRepository.class
+com\scheduler\service\SchedulerServiceImpl.class
+com\scheduler\repository\ProjectRepository.class
+com\scheduler\model\Task.class
+com\scheduler\model\Project.class
+com\scheduler\service\SchedulerService.class
+com\scheduler\SchedulerApplication.class
