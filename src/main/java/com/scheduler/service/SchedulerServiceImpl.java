@@ -56,7 +56,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 
 		if (projects.size() > 0) {
 			printProjectList(projects);
-			ask("Do you want to ADD a project or PRINT a project schedule (add or print)?");
+			ask("Do you want to ADD a project or PRINT a project schedule (type add or print only)?");
 			String action = scanner.nextLine().trim();
 			if (action.equalsIgnoreCase("print")) {
 				printProjectPlanSchedule(scanner);
@@ -263,7 +263,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 		ask("Please enter a task for your \"%s\" project :", projectName);
 		taskName = scanner.nextLine().trim();
 
-		ask("What is the duration of \"%s\" task in days?", taskName);
+		ask("What is the duration of \"%s\" task in days (number only)?", taskName);
 		taskDuration = Integer.parseInt(scanner.nextLine().trim());
 
 		Task task = new Task();
