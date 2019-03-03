@@ -14,7 +14,6 @@ public class SchedulerApplication implements CommandLineRunner {
 	@Autowired
 	private SchedulerServiceImpl schedulerService;
 
-	// java -jar target/scheduler-0.0.1-SNAPSHOT.jar
 	public static void main(String[] args) {
 		  SpringApplication app = new SpringApplication(SchedulerApplication.class);
 	       // app.setBannerMode(Banner.Mode.OFF);

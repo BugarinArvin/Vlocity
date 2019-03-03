@@ -70,8 +70,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	/**
-	 * @param scanner
-	 * close scanner and exit
+	 * @param scanner close scanner and exit
 	 */
 	private void exitScheduler(Scanner scanner) {
 		scanner.close();
@@ -79,7 +78,8 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	/**
-	 * @param scanner print schedule of tasks in console
+	 * @param scanner 
+	 * print schedule of tasks in console
 	 */
 	private void printProjectPlanSchedule(Scanner scanner) {
 		ask("Please enter \"PROJECT ID\" of project to print:");
@@ -124,8 +124,8 @@ public class SchedulerServiceImpl implements SchedulerService {
 		}
 
 		logger.info("taskmap {}", taskMap.toString());
-		
-		Map <Task, LocalDate> sortedTaskMap = sortHashMapbyValue(taskMap);
+
+		Map<Task, LocalDate> sortedTaskMap = sortHashMapbyValue(taskMap);
 		sortedTaskMap.forEach((taskKey, taskvalue) -> {
 			at.addRule();
 			AT_Row roww;
@@ -148,19 +148,15 @@ public class SchedulerServiceImpl implements SchedulerService {
 
 	/**
 	 * @param taskMap
-	 * @return
-	 * sort task map by start date
+	 * @return sorted task map by start date
 	 */
 	private LinkedHashMap<Task, LocalDate> sortHashMapbyValue(Map<Task, LocalDate> taskMap) {
-		return taskMap.entrySet().stream()
-				.sorted(Map.Entry.comparingByValue()) 			
-				.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-				(oldValue, newValue) -> oldValue, LinkedHashMap::new));
+		return taskMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors
+				.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 	}
 
 	/**
-	 * @param scanner
-	 * exit or continue scheduler
+	 * @param scanner exit or continue scheduler
 	 */
 	private void askUserIfContinue(Scanner scanner) {
 		ask("Do you still want to continue (y or n)?");
@@ -173,7 +169,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	/**
-	 * @param scanner
+	 * @param scanner 
 	 * Get project and task details and save to H2 Database
 	 */
 	private void addProject(Scanner scanner) {
@@ -198,7 +194,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	/**
 	 * @param scanner
 	 * @param projectName
-	 * @param project
+	 * @param project     
 	 * Gets task dependencies and save to H2 Database
 	 */
 	private void addTaskDependencies(Scanner scanner, String projectName, Project project) {
@@ -259,8 +255,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	 * @param projectName
 	 * @param taskDataEntry
 	 * @param project
-	 * @return
-	 * adds tasks to project
+	 * @return true or false for adding tasks to project
 	 */
 	private boolean addTask(Scanner scanner, String projectName, boolean taskDataEntry, Project project) {
 		String taskName;
@@ -285,7 +280,7 @@ public class SchedulerServiceImpl implements SchedulerService {
 	}
 
 	/**
-	 * @param projects
+	 * @param projects 
 	 * Prints list of projects in database
 	 */
 	private void printProjectList(List<Project> projects) {
